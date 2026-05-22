@@ -17,7 +17,18 @@
     <li><a href="journal.html">Журнал</a></li>
     <li><a href="resources.html">Ресурсы</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Меню">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Главная</a>
+  <a href="about.html" onclick="closeMenu()">О проекте</a>
+  <a href="members.html" onclick="closeMenu()">Участники</a>
+  <a href="journal.html" onclick="closeMenu()">Журнал</a>
+  <a href="resources.html" onclick="closeMenu()">Ресурсы</a>
+</div>
 
 <section class="hero" style="min-height:50vh;padding-top:140px;padding-bottom:60px;">
   <div class="hero-bg"></div>
@@ -163,5 +174,20 @@
   </p>
 </footer>
 
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobileMenu");
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("open");
+  mobileMenu.classList.toggle("open");
+  document.body.style.overflow = mobileMenu.classList.contains("open") ? "hidden" : "";
+});
+function closeMenu() {
+  hamburger.classList.remove("open");
+  mobileMenu.classList.remove("open");
+  document.body.style.overflow = "";
+}
+</script>
 </body>
 </html>
