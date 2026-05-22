@@ -655,3 +655,103 @@ footer p { color: var(--muted); font-size: 0.82rem; font-weight: 300; line-heigh
   footer { padding: 32px 20px; }
   footer p { font-size: 0.78rem; }
 }
+
+/* ════════════════════════════════════════
+   BUG FIXES — MOBILE OVERFLOW
+════════════════════════════════════════ */
+
+/* Global overflow fix */
+* { max-width: 100%; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* Members — 3 ustunli grid mobilida buziladi */
+@media (max-width: 560px) {
+  /* Shared work ichidagi 3 ustun */
+  div[style*="grid-template-columns: 1fr 1fr 1fr"],
+  div[style*="grid-template-columns:1fr 1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+
+  /* Foto grid (3 rasm) */
+  div[style*="grid-template-columns:1fr 1fr 1fr"],
+  div[style*="grid-template-columns: 1fr 1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  /* Journal STARTUP HUB card ichidagi sertifikat tugmalari */
+  .cert-link {
+    display: block !important;
+    width: 100% !important;
+    margin-right: 0 !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    word-break: break-word !important;
+  }
+
+  /* Journal matn overflow */
+  .journal-content p,
+  .journal-content h3 {
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+  }
+
+  /* Event card matn */
+  .event-card h3,
+  .event-card p {
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* Inline style grid fixes */
+  section .container > div[style*="grid"] {
+    overflow: hidden !important;
+  }
+
+  /* Members shared work box */
+  div[style*="padding: 45px"],
+  div[style*="padding:45px"] {
+    padding: 24px 18px !important;
+  }
+
+  /* Rasm grid 3 ustun → 1 ustun */
+  div[style*="grid-template-columns:1fr 1fr 1fr"],
+  div[style*="grid-template-columns: 1fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* About stats 2 ustun saqlash */
+  .about-stats {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* Tablet uchun ham 3 ustun fix */
+@media (max-width: 768px) {
+  div[style*="grid-template-columns: 1fr 1fr 1fr"],
+  div[style*="grid-template-columns:1fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  div[style*="grid-template-columns: 1fr 1fr"],
+  div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Event meta horizontal */
+  .event-meta {
+    flex-direction: column !important;
+    min-width: unset !important;
+  }
+
+  .cert-link {
+    margin-right: 0 !important;
+    margin-bottom: 10px !important;
+    display: block !important;
+    text-align: center !important;
+  }
+}
